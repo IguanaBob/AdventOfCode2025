@@ -1,6 +1,6 @@
 # Day 1
 
-To start out, let’s go back to my roots. The first programming language I having remembered ever learning was Apple BASIC on an Apple IIc. Since I no longer have the Apple II, I had to scour the web for its ROMs and emulate it in MAME to get as close to the original experience as possible.
+To start out, let’s go back to my roots. The first programming language I can remembered learning is Apple BASIC on an Apple IIc. Since I no longer have the Apple II, I had to scour the web for its ROMs and emulate it in MAME to get as close to the original experience as possible.
 
 I initially started programming directly in Apple DOS 3.3, getting about halfway through, but then switched over to VSCode as my code became more complex. I still ran it inside the emulated Apple II to obtain the answers. For the very hard-core, I challenge you to try doing everything entirely in Apple DOS without using a modern editor at all.
 
