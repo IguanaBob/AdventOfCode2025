@@ -70,3 +70,12 @@ This should show empty as no files are created yet.
 
 ![Hello, World!](hello1.png) ![CATALOG,D2](cat3.png)
 
+### Export files from disk image
+
+If you want to extract files you have saved into the disk image, again run AppleCommander
+
+```
+java -jar AppleCommander-linux-x86_64-1.10.1.jar
+```
+
+Open aoc2025.dsk, highlight HELLOWORLD. Click export and save the file as an AppleBasic file in your desired path.
