@@ -5,4 +5,21 @@ I'm going to try to mix it up this year. I have some odd ideas, and if I can fig
 
 Last year I waited until after the 25th to start posting my solutions, but really with LLMs and plenty of other solutions already posted online there is no point. If you are going to cheat, I can't stop you, that's on you and you alone.
 
-[Day 01](Day01/): Apple BASIC in an Apple II emulator
+If I go in the order of languages I learned chronologically, I believe the order would be:
+
+- [Day 01](Day01/): Apple BASIC
+- Batch/CMD
+- HTML/CSS (even possible?)
+- C++
+- Bash
+- Java
+- JavaScript
+- PHP
+- Python
+- Powershell
+- Ansible/YAML/Jinja (possible?)
+- ???
+
+The order may be wrong. This would only include languages I actually learned and coded for more than a few minutes/hours, so things like Perl, Assembly, etc don't count. If I didn't forget anything leaves one slots to learn something new as well.
+
+
