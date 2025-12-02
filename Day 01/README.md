@@ -63,6 +63,7 @@ This should show empty as no files are created yet.
 ]NEW
 ]10 PRINT "HELLO, WORLD!"
 ]20 END
+]LIST
 ]RUN
 ]SAVE HELLOWORLD
 ```
