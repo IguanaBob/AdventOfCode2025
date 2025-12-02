@@ -5,4 +5,4 @@ I'm going to try to mix it up this year. I have some odd ideas, and if I can fig
 
 Last year I waited until after the 25th to start posting my solutions, but really with LLMs and plenty of other solutions already posted online there is no point. If you are going to cheat, I can't stop you, that's on you and you alone.
 
-[Day 1]("Day01"): Apple BASIC in an Apple II emulator
+[Day 01](Day01/): Apple BASIC in an Apple II emulator
