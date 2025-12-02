@@ -67,4 +67,5 @@ This should show empty as no files are created yet.
 ]SAVE HELLOWORLD
 ```
 
-![Hello, World!](hello1.png)
+![Hello, World!](hello1.png) ![CATALOG,D2](cat3.png)
+
