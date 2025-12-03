@@ -111,9 +111,82 @@ How can I pull this off and be as pure as possible. Some options:
 DOS-Box can run 4DOS, which is much more capable. It originates from 1989 and was intended as a replacement for COMMAND.COM in MS-DOS, and Windows 9x. However, not a Microsoft product.
 
 #### NT cmd.exe
-Step slightly into the future and use cmd.exe from NT-based Windows (NT, 2000, XP, 7, etc). Can be run in DOS-Box-X if I have it run Windows, or I can fall back to a VM install. From Microsoft and native to Windows, but the timeframe and versions don't match what I learned, if I am trying to stay true to my original intent for these challenges.
+Step slightly into the future and use cmd.exe from NT-based Windows (NT, 2000, XP, 7, etc). Would need VirtualBox, libvirt, or another VM. Sourced from Microsoft and native to Windows, but the timeframe and versions don't match what I learned, if I am trying to stay true to my original intent for these challenges.
 
 #### Manually set variables to match the input data
 The input file is shorter today, so this MIGHT be possible depending on how capable the string manipulation and looping is in DOS 6 Batch. I'll have to investigate this further before eliminating it as an option.
 
 So which do I use? I will sleep on it and return to this later...
+
+### The next day...
+
+I am going to fudge my rules a bit and try to use cmd.exe from Windows XP or newer. If that doesn't work out I will fall-back to 4DOS
+
+#### Where to get it?
+
+I thought I had an old XP ISO in my backups from back in the day, but I can't find it. I may still have a CD in the file cabinet. ChatGPT's suggests getting the Windows XP Mode VHD intended for use in Windows 7, but any download links I can find from legitimate sources are long dead. I did find a still-live download for Server 2008, which is in the same family as XP, in VHD format for evaluation [here](https://www.microsoft.com/en-us/download/details.aspx?id=2227). Evaluation is more than enough for a one day challenge. You will need the part 1 .exe and the part 2 and part 3 .rar files. With all three files in your CWD, extract with `unrar x <file>`.
+
+```
+sudo apt install unrar
+unrar x WS2008R2Fullx64Ent.part01.exe
+```
+
+The 6.5GB VHD file needed will extract to `./WS2008R2Fullx64Ent/WS2008R2Fullx64Ent/Virtual Hard Disks/WS2008R2Fullx64Ent.vhd`
+
+If you will be using libvirt, you can use this directly, so skip down below. If you have VirtualBox, follow the next section.
+
+#### Option 1: VirtualBox
+
+Make sure VirtualBox is installed from your package manager or another method, then run:
+
+```
+VBoxManage clonehd "./WS2008R2Fullx64Ent/WS2008R2Fullx64Ent/Virtual Hard Disks/WS2008R2Fullx64Ent.vhd" "WS2008R2Fullx64Ent.vdi" --format VDI
+```
+
+You will then have a .vdi file you can move elsewhere to use in VirtualBox.
+
+#### Option 2: libvirt
+
+Move the .vhd to your desired location. I used VirtMachineManager to import the vhd as a disk image, did basic VM config steps (no need for a NIC), then started the VM, answered some setup questions, set a password, etc. A few minutes later I had a Desktop.
+
+I suggest turning off a lot of stuff you don't need.
+
+Services:
+DHCP Client (unless you want network)
+DNS Client (unless you want network)
+Print Spooler
+Server
+TCP/IP NetBIOS Helper
+Windows Remote Management
+Windows Update
+
+![Windows Server 2008 desktop](server2k8.png)
+
+Run Start -> Run -> `cmd.exe`
+
+This version of windows does not have `edit` for command-line text editing, so I'll use `notepad`, which honestly is what I used back in the day anyway.
+
+```
+notepad HELLO.BAT
+```
+
+Type in the same hello world program.
+
+```
+@echo off
+echo Hello, World!
+```
+
+![Windows Server 2008, Notepad, Hello World](2k8-hello.png)
+
+Save. Exit. Run
+
+```
+HELLO.BAT
+```
+
+![Windows Server 2008, Notepad, Hello World running](2k8-hello-run.png)
+
+## The daily challenge... again...
+
+Coming soon...
