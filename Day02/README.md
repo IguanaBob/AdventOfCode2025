@@ -1,6 +1,6 @@
 # Day 2
 
-In the early and mid 90s I spent a lot of time on Windows 3.1/MS-DOS, Windows 95, Windows 98, and later Windows ME. Being the clueless teenage "1337 HAX0R" I thought I was at the time, I dabbled in Batch scripting. I never accomplished much back then, but it still counted as programming, so I will attempt to use it for Day 2.
+In the 1990s I spent a lot of time on Windows 3.1/MS-DOS, Windows 95, Windows 98, and later Windows ME. Being the clueless teenage "1337 HAX0R" I thought I was at the time, I dabbled in Batch scripting. I never accomplished much back then, but it still counted as programming, so I will attempt to use it for Day 2.
 
 ## Choosing your environment
 
