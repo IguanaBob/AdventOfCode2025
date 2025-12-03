@@ -93,4 +93,27 @@ HELLO.BAT
 
 ## The daily challenge
 
-Coming soon...
+### 🧱 Immediate Roadblock
+
+In researching Batch I quickly found that the COMMAND.COM in MS-DOS 6 and Win9x for Batch programming is not up to the task of this AoC challenge. This is primarily because several limitations:
+
+- Can't read files line-by-line or in it's entirety into a variable
+- Almost no string manipulation
+- Limited looping
+
+With COMMAND.COM much of the advanced processing is usually done with other helper programs in other languages with Batch just being used as a simple launcher. At that point I am basically using a different programming language for the challenge so whats the point of trying to use Batch?
+
+### ❓ So what now?
+
+How can I pull this off and be as pure as possible. Some options:
+
+#### 4DOS
+DOS-Box can run 4DOS, which is much more capable. It originates from 1989 and was intended as a replacement for COMMAND.COM in MS-DOS, and Windows 9x. However, not a Microsoft product.
+
+#### NT cmd.exe
+Step slightly into the future and use cmd.exe from NT-based Windows (NT, 2000, XP, 7, etc). Can be run in DOS-Box-X if I have it run Windows, or I can fall back to a VM install. From Microsoft and native to Windows, but the timeframe and versions don't match what I learned, if I am trying to stay true to my original intent for these challenges.
+
+#### Manually set variables to match the input data
+The input file is shorter today, so this MIGHT be possible depending on how capable the string manipulation and looping is in DOS 6 Batch. I'll have to investigate this further before eliminating it as an option.
+
+So which do I use? I will sleep on it and return to this later...
