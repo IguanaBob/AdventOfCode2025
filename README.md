@@ -8,13 +8,12 @@ Last year I waited until after the 25th to start posting my solutions, but hones
 
 If I list the languages I learned in roughly chronological order, I believe it would go like this:
 
-* [Day 01](Day01/): Apple BASIC
-* [Day 02](Day02/): Windows 95/98 Batch
-* HTML/CSS (even possible?)
+* [Day 01](Day01/): Apple BASIC (MAME/Apple IIe)
+* [Day 02](Day02/): MS-DOS/Win9x Batch (DOS-Box-X)
+* HTML/CSS/Javascript
 * C++
-* Bash
+* BASH
 * Java
-* JavaScript
 * PHP
 * Python
 * PowerShell
