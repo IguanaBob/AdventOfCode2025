@@ -56,7 +56,7 @@ You should now see the contents of the mounted directory.
 
 ![DOSBOX-X Mounted Drive](dosbox-x-mount.png)
 
-Next, use the native command-line text editor "edit":
+Next, create the `HELLO.BAT` file. Back in the day I used Notepad in Windows, but for the challenge I will use the DOS text editor `edit`:
 
 ```
 edit HELLO.BAT
