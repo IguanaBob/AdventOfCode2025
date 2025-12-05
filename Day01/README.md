@@ -1,15 +1,25 @@
 # Day 1
 
-To start out, let’s go back to my roots. The first programming language I can remembered learning is Apple BASIC on an Apple IIc. Since I no longer have the Apple II, I had to scour the web for its ROMs and emulate it in MAME to get as close to the original experience as possible.
+To start out, let’s go back to my roots. The first programming language I remember learning is Apple BASIC on an Apple IIc. I can remember one of my very first Apple BASIC programs being some variation of this:
+
+```
+10 INPUT "ENTER YOUR NAME: ";N$
+20 PRINT N$
+30 GOTO 20
+```
+
+🔁♾️😵‍💫
+
+Since I no longer have the Apple II, I had to scour the web for its ROMs and emulate it in MAME to get as close to the original experience as possible.
 
 I initially started programming directly in Apple DOS 3.3, getting about halfway through, but then switched over to VSCode as my code became more complex. I still ran it inside the emulated Apple II to obtain the answers. For the very hard-core, I challenge you to try doing everything entirely in Apple DOS without using a modern editor at all.
 
 ## Prerequisites for Ubuntu 22.04
 
 * MAME (from distro package manager): `sudo apt install mame`
-* ROMs for Apple IIc and/or Apple IIe (user must obtain these)
+* ROMs for the Apple IIc and/or Apple IIe (user must obtain these)
 * [DOS 3.3 System Master .dsk image](https://mirrors.apple2.org.za/ftp.apple.asimov.net/images/masters/DOS%203.3%20System%20Master%20-%20680-0051-00.dsk)
-* [AppleCommander v1.10.1](https://github.com/AppleCommander/AppleCommander/releases/tag/1.10.1) for copying files in and out of `.dsk` images, or a newer version if you have a newer version of Java installed.
+* [AppleCommander v1.10.1](https://github.com/AppleCommander/AppleCommander/releases/tag/1.10.1) for copying files in and out of `.dsk` images, or a newer version if your Java version requires it.
 
 ### Create a disk to save your work
 
@@ -19,7 +29,7 @@ Run AppleCommander:
 java -jar AppleCommander-linux-x86_64-1.10.1.jar
 ```
 
-To save your programs, create a DOS 3.3 disk saved in the same directory as your master DOS disk. I named mine `aoc2025.dsk`.
+To save your programs, create a DOS 3.3 disk in the same directory as your master DOS disk. I named mine `aoc2025.dsk`.
 
 ### Run Apple DOS 3.3 in MAME in Apple IIe mode
 
@@ -29,7 +39,11 @@ mame -rompath "$HOME/.mame/roms" apple2ee -window -nomouse \
 -flop2 aoc2025.dsk -keepaspect -snapsize 560x420
 ```
 
+Screenshots from MAME:
+
 ![Apple DOS 3.3 Start screen 1](dos1.png) ![Apple DOS 3.3 Start screen 2](dos2.png)
+
+It lacks some of the charm of an old CRT display, but it works.
 
 #### Using DOS
 
@@ -92,7 +106,7 @@ You may want to use the small “sample” input from the Day 1 explanation when
 
 ### Convert CRLF and LF to CR
 
-You need to convert endlines to CR for Apple DOS to recognize the file as text. On Linux this is easy with `sed` and `tr`:
+You need to convert endlines to CR for Apple DOS to recognize the file as text. On Linux, this is easy with `sed` and `tr`:
 
 ```
 sed 's/\r$//' INPUT.TXT | tr '\n' '\r' > INPUT.TXT.CR
@@ -119,7 +133,7 @@ Alternatively, you can write your code externally in something like VSCode, then
 
 #### Test your program in MAME/Apple DOS:
 
-Start it up again, then run.
+Start it up again, then run:
 
 ```
 ] CATALOG,D2
@@ -132,4 +146,8 @@ If it worked, the answer for the sample input should be **3**.
 
 A working program using the small sample input should run in just a few seconds. Once it works, replace `INPUT` with your real input file. This may take a while to run at emulated 1 MHz, so feel free to fast-forward the emulation in MAME. Props to anyone who tries this on real hardware.
 
-To see my final solution code, check out `DAY1A.bas` in this repo.
+To see my final solution code, check out `DAY1A.bas` and `DAY2A.bas` in this repo.
+
+### Post-solution thoughts
+
+The logic for Day One was expectedly simple. The hardest part of this was just figuring out BASIC loops, ensuring it doesn't break at the end of the input file, and of course keeping track of line numbers. String manipulation was odd, but nothing I couldn’t figure out with a little research and studying. Overall, not too bad.
