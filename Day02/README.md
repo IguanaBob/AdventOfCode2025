@@ -1,28 +1,33 @@
 # Day 2
 
-In the 1990s I spent a lot of time on Windows 3.1/MS-DOS, Windows 95, Windows 98, and later Windows ME. Being the clueless teenage "1337 HAX0R" I thought I was at the time, I dabbled in Batch scripting. I never accomplished much back then, but it still counted as programming, so I will attempt to use it for Day 2.
+In the 1990s I spent a lot of time on Windows 3.1/MS-DOS, Windows 95, Windows 98, and later Windows ME. Being the clueless teenage "1337 HAX0R" I thought I was at the time, I dabbled in Batch scripting. I never accomplished much back then and I can't remember doing much more than looping a few commands in a .bat file or launching a program with special flags, but I at the time thought it was programming, and it does have some elements of a programming language, so I will attempt to use it for Day 2.
 
 ## Choosing your environment
 
 There are a number of ways you could approach this day's challenge in Batch scripting. I will focus on MS-DOS and Win9x variants here, but you could use newer Windows NT (XP/7) versions of DOS/Batch and still be close enough.
 
 1. **Pure**<br />
-   The hardcore option is to use real MS-DOS or Windows, even on actual hardware. VMware or VirtualBox would also count as "pure enough."
+   The hardcore option is to use real MS-DOS or Windows. VMware or VirtualBox would also count as "pure enough" in my book, but extra points for bare-metal attempts.
 
 2. **Free**<br />
    Another option, less pure but more open and non-proprietary, is FreeDOS, which also works on real hardware or in a VM.
 
 3. **Easy**<br />
-   Less pure still, but accurate enough, are tools like DOSBox and DOSBox-X. These lean more toward emulation, but offer many conveniences compared to native options. Still close enough for AoC.
+   Less pure still, but close enough, are tools like DOSBox and DOSBox-X. These lean more toward emulation, but offer many conveniences compared to native options. Still close enough for AoC.
 
 4. **Dirty**<br />
-   Probably the easiest and laziest option would be running DOS programs under WINE, but it works fine.
+   Probably the easiest and laziest option would be running DOS programs under WINE, but it works good enough for AoC challenges.
 
-Although I do not have easy access to true Windows on my personal machines anymore, I could use an old Windows ISO with VirtualBox. However, I am going to fall back on one of the DOSBox options. I will try DOSBox-X first.
+Although I do not have easy access to true Windows on my personal machines anymore, I could use an old Windows ISO with VirtualBox. However, I am going to try one of the DOS-Box options first, with DOS-Box-X.
+
+<details>
+  <summary><strong>Spoilers about my initial choice if you are following along</strong></summary>
+  My initial choice for programming language/environemnt turned out to not work out and I had to adapt a bit to using Windows Server 2008 in a VM. <a href="#immediate-roadblock">Skip down</a> if you are following along and don't want to set up DOSBox-X which will not be used.
+</details>
 
 ## Prerequisites for Ubuntu 22.04
 
-In Ubuntu 22.04, DOSBox is available in the apt repo, and DOSBox-X is available as a snap.
+In my Ubuntu 22.04 install, DOSBox is available in the apt repo, and DOSBox-X is available as a snap.
 
 ```
 sudo snap install dosbox-x
@@ -34,7 +39,7 @@ or
 sudo apt install dosbox
 ```
 
-I am going with DOSBox-X. Once installed, launch it:
+I went with DOSBox-X. Once installed, launch it:
 
 ```
 dosbox-x
@@ -108,7 +113,7 @@ With COMMAND.COM much of the advanced processing is usually done with other help
 How can I pull this off and be as pure as possible. Some options:
 
 #### 4DOS
-DOS-Box can run 4DOS, which is much more capable. It originates from 1989 and was intended as a replacement for COMMAND.COM in MS-DOS, and Windows 9x. However, not a Microsoft product.
+DOSBox can run 4DOS, which is much more capable. It originates from 1989 and was intended as a replacement for COMMAND.COM in MS-DOS, and Windows 9x. However, not a Microsoft product.
 
 #### NT cmd.exe
 Step slightly into the future and use cmd.exe from NT-based Windows (NT, 2000, XP, 7, etc). Would need VirtualBox, libvirt, or another VM. Sourced from Microsoft and native to Windows, but the timeframe and versions don't match what I learned, if I am trying to stay true to my original intent for these challenges.
@@ -187,6 +192,29 @@ HELLO.BAT
 
 ![Windows Server 2008, Notepad, Hello World running](2k8-hello-run.png)
 
+#### Copying files in/out of the VM
+
+There are a few options with varying levels of easy.
+
+- Network share or share over the internet. Only possible if you added a NIC and allowed network/internet access.
+
+- USB stick and USB redirection. (Requires physical USB drive. Offline, requires no additional drivers.)
+
+- Virtual disk mapped to a raw loopback file. (No extra hardware required. Offline, requires no additional drivers. More complex than USB redirection.)
+
+- Virtual "Filesystem" device. (Needs internet to install virtio driver, or install manually another way)
+
+
+USB stick with USB redirection is the fastest/easiest without network access, so I went with that. Find a spare USB stick with no data you need to keep. Plug it into your system but do not mount, or unmount it if it mounted automtically.
+
+In your VM software, enable it's version of USB redirection. This will "plug in" the USB stick to the VM. On mine, it assigned it to drive D:/ and already had a usable filesystem. If the filesystem is not readable to the guest you may need to format it in Windows. Use ExFAT (or FAT32 for better compatibility).
+
+Now that we know Windows can read the USB we need to go back to your host OS and copied the input files to it. Use "safely remove" option in Windows, turn off USB redirection in the VM's menus, then mount in your host OS to copy your input and sample files to it. Once they are copied to the USB unmount it from your host OS, turn USB redirection on again, and it should automatically be mounted to D:/ which you can switch to in cmd.exe with `d:`
+
+![Directory listing of USB drive on D:/](2k8-usb-dir.png)
+
+I am going to work directly off the mounted USB, but you can always copy from and to the USB inside Windows if you so desire.
+
 ## The daily challenge... again...
 
-Coming soon...
+Start coding! My solutions will be posted in Day02 of this repo.
