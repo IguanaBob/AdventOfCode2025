@@ -2,6 +2,7 @@
 
 echo Advent of Code 2025 - Day 2, Part A
 echo Copyright 2025 Jonathan Hull
+echo Thanks for tips from https://ss64.com/forum/strlen.html and https://ss64.com/nt/
 
 REM set FILE=input.txt
 set FILE=sample.txt
