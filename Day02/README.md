@@ -217,4 +217,11 @@ I am going to work directly off the mounted USB, but you can always copy from an
 
 ## The daily challenge... again...
 
-Start coding! My solutions will be posted in Day02 of this repo.
+Start coding using the sample input. If your code works, your answer for the sample should be `1227775554`. 
+
+![Screenshot showing ouput of correct sample answer](sample_answer.png)
+
+
+Once you have that, switch the input file to your personal input and run it again.
+
+My solutions will be posted in Day02 of this repo, once it finishes running...
