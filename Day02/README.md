@@ -219,7 +219,7 @@ I am going to work directly off the mounted USB, but you can always copy from an
 
 Start coding using the sample input. If your code works, your answer for the sample should be `1227775554`. 
 
-![Screenshot showing ouput of correct sample answer](sample_answer.png)
+![Screenshot showing ouput of correct sample answer](answer_sample.png)
 
 
 Once you have that, switch the input file to your personal input and run it again.
